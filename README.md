@@ -76,7 +76,9 @@ The final CASRGAN generator contains 20 AFEBs (Adaptive Feature Extraction Block
 ![avatar](./imgs/ahpf.png)
 
 The proposed AHPF can filter the high spatial frequency of an image. We obtain such information by subtracting the low frequency information gathered by a specially designed convolution layer, whose kernel is set to be:
-$$ W_{AHPF} = \left[\begin{matrix}\alpha&\alpha&\alpha\\\alpha&\alpha&\alpha\\\alpha&\alpha&\alpha\\\end{matrix}\right]$$
+```math
+W_{AHPF} = \left[\begin{matrix}\alpha&\alpha&\alpha\\\alpha&\alpha&\alpha\\\alpha&\alpha&\alpha\\\end{matrix}\right]
+```
 Where $\alpha$ is the learnable parameter. It can be observed form the below figure that when $\alpha$ approaches $1/9$, the module can output clear high-frequency texture information of the image. As the value of $\alpha$ decreases, the output image increasingly approximates the original image. Thus, by learning $\alpha$, the model can adaptively optimize the value of $\alpha$, learning different levels of high-frequency features from the input for super-resolution reconstruction.
 
 ![avatar](./imgs/alpha.png)
@@ -104,7 +106,9 @@ We use a simple classification model as the discriminator:
 ## 2.3 Loss
 
 Our loss function can be divided into three parts: [**Perceptual Loss**](https://arxiv.org/abs/1603.08155), **GAN Loss** and **Content Loss**.  
-$L_{total}=L_{percep}+\ \eta_1L_{GAN,G}\ +\eta_2L_{content}\$
+```math
+L_{total}=L_{percep}+\ \eta_1L_{GAN,G}\ +\eta_2L_{content}\
+```
 Where $\eta_{1}$ and $\eta_{2}$ are constant weights. 
 
 * **Perceptual Loss**
@@ -124,9 +128,9 @@ L_{GAN,D}=\ -\mathbb{E}\left[log\left(D\left(I^{HR}\right)\right)\right]-\mathbb
 * **Content Loss**
 
 Content loss is used to maintain a relatively high PSNR form the image, and is calculated as:
-$$
+```math
 L_{content} = \mathbb{E}\left[I^{HR}-G\left(I^{LR}\right)\right]] 
-$$
+```
 Which is the L1 loss between the GT image and the reconstructed SR image.
 
 ## 2.4 Training
