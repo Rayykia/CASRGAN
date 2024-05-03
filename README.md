@@ -107,7 +107,7 @@ We use a simple classification model as the discriminator:
 
 Our loss function can be divided into three parts: [**Perceptual Loss**](https://arxiv.org/abs/1603.08155), **GAN Loss** and **Content Loss**.  
 ```math
-L_{total}=L_{percep}+\ \eta_1L_{GAN,G}\ +\eta_2L_{content}\
+L_{total}=L_{percep}+\ \eta_1L_{GAN,G}\ +\eta_2L_{content}
 ```
 Where $\eta_{1}$ and $\eta_{2}$ are constant weights. 
 
