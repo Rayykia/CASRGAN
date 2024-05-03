@@ -76,7 +76,7 @@ The final CASRGAN generator contains 20 AFEBs (Adaptive Feature Extraction Block
 ![avatar](./imgs/ahpf.png)
 
 The proposed AHPF can filter the high spatial frequency of an image. We obtain such information by subtracting the low frequency information gathered by a specially designed convolution layer, whose kernel is set to be:
-$$ W_{AHPF} = \left[\begin{matrix}\alpha&\alpha&\alpha\\\alpha&\alpha&\alpha\\\alpha&\alpha&\alpha\\\end{matrix}\right] $$
+$$ W_{AHPF} = \left[\begin{matrix}\alpha&\alpha&\alpha\\\alpha&\alpha&\alpha\\\alpha&\alpha&\alpha\\\end{matrix}\right]$$
 Where $\alpha$ is the learnable parameter. It can be observed form the below figure that when $\alpha$ approaches $1/9$, the module can output clear high-frequency texture information of the image. As the value of $\alpha$ decreases, the output image increasingly approximates the original image. Thus, by learning $\alpha$, the model can adaptively optimize the value of $\alpha$, learning different levels of high-frequency features from the input for super-resolution reconstruction.
 
 ![avatar](./imgs/alpha.png)
@@ -116,10 +116,10 @@ In CASRGAN, we use the VGG19 model pretrained on ImageNet and we use its 17th la
 * **GAN Loss**
 
 GAN loss is the basic adversarial loss to train a GAN, where we optimize:
-$$
+```math
 L_{GAN,G}=\mathbb{E}\left[-logD\left(G\left(I^{LR}\right)\right)\right]\ \\
 L_{GAN,D}=\ -\mathbb{E}\left[log\left(D\left(I^{HR}\right)\right)\right]-\mathbb{E}\left[log\left(1-D\left(G\left(I^{LR}\right)\right)\right)\right]
-$$
+```
 
 * **Content Loss**
 
