@@ -76,7 +76,7 @@ The final CASRGAN generator contains 20 AFEBs (Adaptive Feature Extraction Block
 ![avatar](./imgs/ahpf.png)
 
 The proposed AHPF can filter the high spatial frequency of an image. We obtain such information by subtracting the low frequency information gathered by a specially designed convolution layer, whose kernel is set to be:
-$W_{AHPF} = \left[\begin{matrix}\alpha&\alpha&\alpha\\\alpha&\alpha&\alpha\\\alpha&\alpha&\alpha\\\end{matrix}\right]$
+$$ W_{AHPF} = \left[\begin{matrix}\alpha&\alpha&\alpha\\\alpha&\alpha&\alpha\\\alpha&\alpha&\alpha\\\end{matrix}\right] $$
 Where $\alpha$ is the learnable parameter. It can be observed form the below figure that when $\alpha$ approaches $1/9$, the module can output clear high-frequency texture information of the image. As the value of $\alpha$ decreases, the output image increasingly approximates the original image. Thus, by learning $\alpha$, the model can adaptively optimize the value of $\alpha$, learning different levels of high-frequency features from the input for super-resolution reconstruction.
 
 ![avatar](./imgs/alpha.png)
