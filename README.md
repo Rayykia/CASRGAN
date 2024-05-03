@@ -6,7 +6,6 @@
 
 All networks are trained on a NVIDIA Tesla A100 GPU using 11 thousand images from the [fastMRI dataset](https://fastmri.med.nyu.edu/).  
 
-**NOTE: CASRGAN expects to have better performance as 11 thousand is only about half of the dataset, and this document WILL BE UPDATED shortly after the networks are trained on the full dataset.**
 
 
 
